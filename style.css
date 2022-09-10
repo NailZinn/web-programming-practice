@@ -1,0 +1,232 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-panel-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 6px;
+}
+
+.nav-panel {
+    display: flex;
+    align-items: center;
+    padding-right: 4px;
+    height: 48px;
+}
+
+.link {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    text-decoration: none;
+    padding-right: 15px;
+    color: rgba(0,0,0,.87);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.menu-container {
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.menu-container:hover {
+    border-radius: 50%;
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.menu {
+    width: 24px;
+    height: 24px;
+    fill: #5f6368;
+}
+
+.enter-container {
+    margin-inline: 8px;
+    background-color: #1a73e8;
+    font-family: Google Sans,Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    width: 96px;
+    height: 36px;
+    border-radius: 4px;
+    border-color: white;
+}
+
+.enter-container:hover {
+    background-color: #1b66c9;
+    box-shadow: 0 1px 3px 1px rgb(66 64 67 / 15%), 0 1px 2px 0 rgb(60 64 67 / 30%);
+    cursor: pointer;
+}
+
+.enter {
+    color: white;
+    text-align:center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo-container {
+    padding-top: 93.6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-bar-container {
+    margin: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 8px 0 14px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    height: 44px;
+    width: calc(632px + 6px);
+    width: auto;
+    max-width: 584px;
+}
+
+.search-bar:hover {
+    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+    border-color: rgba(223,225,229,0);
+}
+
+.search-container {
+    width: 20px;
+    height: 20px;
+    padding-right: 13px;
+}
+
+.input {
+    outline: none;
+    border: none;
+    width: 443px;
+    height: 34px;
+}
+
+
+
+.keyboard-container {
+    padding-inline: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.audio-input-container {
+    padding-inline: 8px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.search-bar-bottom-container {
+    display: flex;
+    justify-content: center;
+    padding: 18px;
+    width: 100%;
+}
+
+.text-container {
+    background-color: #f8f9fa;
+    color: #3c4043;
+    width: 99.163px;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    height: 34px;
+    padding-inline: 16px;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    margin-inline: 4px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.text-container:hover {
+    border-color: #e0e0e0;
+    box-shadow: 0 1px #ebebeb;
+    cursor: pointer;
+}
+
+.left-text-container:active {
+    border-color: #1a73e8;
+}
+
+.text {
+    color: #3c4043;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+.country {
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    color: #70757a;
+}
+
+.footer-bottom-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline: 20px;
+    justify-content: space-between;
+}
+
+.about-container {
+    display: flex;
+}
+
+.about {
+    text-decoration: none;
+    padding: 15px;
+    font-size: 14px;
+    font-family: arial,sans-serif;
+    color: #70757a;
+}
+
+
+.about:hover {
+    text-decoration: underline;
+}
+
+.carbon-dioxide-container {
+    width: 100%;
+    display: flex;
+}
+
+.policy-container {
+    display: flex;
+}
