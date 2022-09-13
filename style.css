@@ -1,0 +1,356 @@
+html body {
+    margin: 0;
+    font-family: "Motiva Sans", sans-serif; 
+}
+
+.header {
+    background: #171a21;
+    font-weight: normal;
+    font-size: 14px;
+    padding-inline: 16px;
+}
+
+.header_content {
+    position: relative;
+    width: 940px;
+    height: 104px;
+    margin: 0 auto;
+}
+
+.logo_holder {
+    float: left;
+    width: 176px;
+    height: 44px;
+    padding-top: 30px;
+    margin-right: 30px;
+}
+
+.nav_container {
+    position: absolute;
+    top: 45px;
+    left: 200px;
+}
+
+.nav_link {
+    color: #b8b6b4;
+    padding: 0 7px;
+    text-decoration: none;
+}
+
+.nav_link:hover {
+    color: white;
+}
+
+.actions_menu {
+    position: absolute;
+    right: 0px;
+    top: 6px;
+    height: 21px;
+    line-height: 21px;
+    color: #b8b6b4;
+    font-size: 11px;
+}
+
+.install_steam {
+    display: inline-block;
+    line-height: 24px;
+    margin-right: 3px;
+}
+
+.install_link {
+    display: inline-block;
+    padding-inline: 35px 9px;
+    color: #e5e4dc;
+    background-image: url("https://store.akamai.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1");
+    background-repeat: no-repeat;
+    background-position: 10px 5px;
+    background-color: #5c7e10;
+    text-decoration: none;
+}
+
+.install_link:hover {
+    color: white;
+}
+
+.enter_button {
+    padding-inline: 4px;
+    color: #b8b6b4;
+    text-decoration: none;
+}
+
+.enter:hover {
+    color: white;
+}
+
+.language {
+    padding-inline: 4px 18px;
+    color: #b8b6b4;
+    background-image: url(https://store.akamai.steamstatic.com/public/shared/images/popups/btn_arrow_down_padded.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.language:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.main_content {
+    display: flex;
+    background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
+    width: 100%;
+    padding-inline: 8px;
+    padding-top: 80px;
+    padding-bottom: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.enter_text {
+    margin: 8px 16px;
+    color: #fff;
+    font-size: 32px;
+    letter-spacing: .055em;
+}
+
+.login_dialog {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-width: 636px;
+    padding: 24px 32px;
+    background-color: #181a21;
+    border-radius: 4px;
+}
+
+.form {
+    flex: 1;
+    display: grid;
+    gap: 12px;
+}
+
+.form input {
+    padding: 10px;
+    color: white;
+    background-color: #32353c;
+    outline: none;
+    font-size: 15px;
+    border: 1px solid #32353c;
+    border-radius: 2px;
+}
+
+.enter_with_account_name {
+    font-size: 12px;
+    color: #1999ff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.password {
+    font-size: 12px;
+    color: #afafaf;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.login_tools {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    padding: 3px;
+    background-color: #32353c;
+    border-radius: 2px;
+}
+
+.remember_me_text {
+    font-size: 12px;
+    color: #afafaf;
+    padding-left: 6px;
+}
+
+.login_button_holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login_button {
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    padding: 12px;
+    font-size: 18px;
+    width: 270px;
+    letter-spacing: .03em;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    color: white;
+}
+
+.login_help {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #afafaf;
+    text-align: center;
+    letter-spacing: .02em;
+}
+
+.beta_function_container {
+    display: grid;
+    flex: 0;
+    margin-left: 24px;
+}
+
+.beta_function {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+}
+
+.beta_function_text {
+    color: #1999ff;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 6px 0;
+}
+
+.beta_function_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    padding: 8px 0;
+}
+
+.beta_function_testers_info {
+    margin: 8px;
+    color: #afafaf;
+    font-size: 12px;
+}
+
+.more {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.give_me_qr_code {
+    color: #afafaf;
+    font-size:12px;
+    text-align: center;
+    margin: 12px 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.join_steam_holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 80px;
+    margin-inline: auto;
+}
+
+.join_steam_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+}
+
+.join_steam_text {
+    text-align: center;
+    font-size: 14px;
+    color: #b8b6b4;
+}
+
+.learn_more {
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.join_steam_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 198px;
+    height: 62px;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 1px solid white;
+    border-color: #afafaf;
+    background-color: #181a21;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    padding-top: 16px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    width: 940px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.line {
+    height: 8px;
+    border-top: 1px solid #363c44;
+}
+
+.valve_link {
+    padding-top: 2px;
+    float: left;
+}
+
+.steam_logo {
+    padding-top: 2px;
+    float: right;
+}
+
+.footer_text {
+    float: left;
+    margin-left: 12px;
+    color: #8F98A0;
+    font-size: 12px;
+}
+
+.footer_text a {
+    text-decoration: none;
+    color: #c6d4df;
+}
+
+.valve_links {
+    margin: 8px;
+    color: #61686d;
+}
+
+.valve_links a {
+    text-decoration: none;
+    color: #c6d4df;
+    font-size: 13px;
+}
+
+.valve_links img {
+    vertical-align: bottom;
+}
