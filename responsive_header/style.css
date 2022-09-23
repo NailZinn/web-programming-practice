@@ -5,6 +5,7 @@
     width: 100%;
     height: 100%;
     background: rgb(0, 0, 0, 0.4);
+    transition: visibility 0.5s, opacity 0.5s;
     z-index: 1;
 }
 
@@ -49,10 +50,9 @@
 .side_menu_opener_checkbox:checked ~ .overlay {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0, opacity 0.5s;
+    transition: visibility 0s, opacity 0.5s;
 }
 
 .side_menu_opener_checkbox:checked ~ .side_menu {
-    display: block;
     left: 0;
 }
