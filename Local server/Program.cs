@@ -5,28 +5,79 @@ namespace Local_server
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            HttpListener listener = new HttpListener();
-            listener.Prefixes.Add("http://localhost:8888/google/");
-            listener.Start();
+            // http://localhost:8888/google/
+            // html/index.html
 
-            Console.WriteLine("Ожидание подключений...");
+            var server = new HttpServer();
 
-            HttpListenerContext context = await listener.GetContextAsync();
-            HttpListenerRequest request = context.Request;
-            HttpListenerResponse response = context.Response;
+            var isRunning = false;
+            var startQuery = Array.Empty<string>();
+            var startCommand = string.Empty;
+            var putQuery = Array.Empty<string>();
+            var endCommand = string.Empty;
 
-            string responseStr = await File.ReadAllTextAsync("html/index.html");
-            byte[] buffer = Encoding.UTF8.GetBytes(responseStr);
-            response.ContentLength64 = buffer.Length;
+            do
+            {
+                try
+                {
+                    // Console.Write("Введите uri локального сервера: ");
+                    startQuery = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            Stream output = response.OutputStream;
-            output.Write(buffer, 0, buffer.Length);
-            output.Close();
-            listener.Stop();
+                    startCommand = startQuery[0];
 
-            Console.WriteLine("Обработка подключений завершена");
+                    if (startCommand == "start")
+                    {
+                        server.Start(startQuery[1]);
+                        isRunning = true;
+
+                        // Console.Write("Введите данные, которые хотите передать на сервер: ");
+                        putQuery = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                        if (putQuery[0] == "put")
+                            server.MakeResponse(putQuery[1], Encoding.UTF8);
+                        else
+                            throw new InvalidOperationException();
+                    }
+                    else
+                        throw new InvalidOperationException();
+                }
+                catch (InvalidOperationException)
+                {
+                    Console.WriteLine("Неопознанная комманда\nВведите retry для перезапуска сервера");
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Не удалось установить контакт с сервером. Проверьте правильность написания uri");
+                    Console.WriteLine("Чтобы перезапустить сервер, введите retry");
+                }
+                catch (FileNotFoundException)
+                {
+                    Console.WriteLine("Файл не найден. Проверьте правильность указанного пути");
+                    Console.WriteLine("Чтобы перезапустить сервер, введите retry");
+                }
+
+                // Console.WriteLine("Для остановки сервера введите stop");
+                // Console.WriteLine("Для перезапуска сервера введите retry");
+
+                endCommand = Console.ReadLine();
+
+                while (endCommand != "retry")
+                {
+                    if (endCommand == "stop")
+                    {   if (!isRunning)
+                            Console.WriteLine("Нельзя отключить сервер, так как он не запущен. Введите retry");
+                        else break;
+                    }
+                    else
+                        Console.WriteLine("Неопознанная комманда\nПопробуйте ещй раз");
+                    endCommand = Console.ReadLine();
+                }
+            }
+            while (endCommand == "retry");
+                
+            server.Stop();
         }
     }
 }
