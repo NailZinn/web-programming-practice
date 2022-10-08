@@ -1,0 +1,104 @@
+.join_steam_holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 80px;
+    margin-inline: auto;
+}
+
+.join_steam_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+}
+
+.join_steam_text {
+    text-align: center;
+    font-size: 14px;
+    color: #b8b6b4;
+}
+
+.learn_more {
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.join_steam_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 198px;
+    height: 62px;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 1px solid white;
+    border-color: #afafaf;
+    background-color: #181a21;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.join_steam_button:hover {
+    border-color: white;
+}
+
+.footer {
+    padding-top: 16px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    width: 940px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.line {
+    height: 8px;
+    border-top: 1px solid #363c44;
+}
+
+.valve_link {
+    padding-top: 2px;
+    float: left;
+}
+
+.steam_logo {
+    padding-top: 2px;
+    float: right;
+}
+
+.footer_text {
+    float: left;
+    margin-left: 12px;
+    color: #8F98A0;
+    font-size: 12px;
+}
+
+.footer_text a {
+    text-decoration: none;
+    color: #c6d4df;
+}
+
+.valve_links {
+    margin: 8px;
+    color: #61686d;
+}
+
+.valve_links a {
+    text-decoration: none;
+    color: #c6d4df;
+    font-size: 13px;
+}
+
+.valve_links img {
+    vertical-align: bottom;
+}
+
+.footer a:hover {
+    color: white;
+}
