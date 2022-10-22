@@ -1,0 +1,166 @@
+.main_content {
+    display: flex;
+    background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
+    width: 100%;
+    padding-inline: 8px;
+    padding-top: 80px;
+    padding-bottom: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.enter_text {
+    margin: 8px 16px;
+    color: #fff;
+    font-size: 32px;
+    letter-spacing: .055em;
+}
+
+.login_dialog {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-width: 636px;
+    padding: 24px 32px;
+    background-color: #181a21;
+    border-radius: 4px;
+}
+
+.form {
+    flex: 1;
+    display: grid;
+    gap: 12px;
+}
+
+.form input {
+    padding: 10px;
+    color: white;
+    background-color: #32353c;
+    outline: none;
+    font-size: 15px;
+    border: 1px solid #32353c;
+    border-radius: 2px;
+}
+
+.form input:hover {
+    background-color: #393c44;
+}
+
+.enter_with_account_name {
+    font-size: 12px;
+    color: #1999ff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+}
+
+.password {
+    font-size: 12px;
+    color: #afafaf;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+}
+
+.login_tools {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    padding: 3px;
+    background-color: #32353c;
+    border-radius: 2px;
+}
+
+.remember_me_text {
+    font-size: 12px;
+    color: #afafaf;
+    padding-left: 6px;
+}
+
+.login_button_holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 49.6px;
+}
+
+.login_button {
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    text-align: center;
+    width: 270px;
+    letter-spacing: .03em;
+    cursor: pointer;
+}
+
+.login_button:hover {
+    background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
+}
+
+.login_help {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #afafaf;
+    text-align: center;
+    letter-spacing: .02em;
+}
+
+.beta_function {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+    width: 200px;
+    margin-left: 24px;
+}
+
+.beta_function_text {
+    color: #1999ff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 6px 0;
+}
+
+.beta_function_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.beta_function_testers_info {
+    margin: 8px;
+    line-height: 16px;
+    color: #afafaf;
+}
+
+.more {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+    line-height: 20px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.give_me_qr_code {
+    color: #afafaf;
+    text-align: center;
+    line-height: 24px;
+    padding: 12px 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

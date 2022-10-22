@@ -1,0 +1,58 @@
+.overlay {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.4);
+    transition: visibility 0.5s, opacity 0.5s;
+    z-index: 1;
+}
+
+.responsive-header {
+    display: none;
+    padding: 13px 8px;
+    background-color: #171a21;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    box-shadow: 0 0 7px 0 rgb(0 0 0 / 75%);
+}
+
+.menu_opener {
+    position: absolute;
+    top: 9px;
+    left: 8px;
+}
+
+.menu_opener:hover {
+    cursor: pointer;
+}
+
+.side_menu_opener_checkbox {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    width: 36px;
+    height: 31px;
+    cursor: pointer;    
+    z-index: 2;
+}
+
+.side_menu_opener_checkbox:checked {
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.side_menu_opener_checkbox:checked ~ .overlay {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.side_menu_opener_checkbox:checked ~ .side_menu {
+    left: 0;
+}
