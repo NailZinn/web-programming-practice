@@ -49,7 +49,7 @@ namespace Local_server
                 statusCode = HttpStatusCode.NotFound;
             }
 
-            return new ResponseInfo(buffer, contentType, statusCode);
+            return new ResponseInfo(buffer, contentType, statusCode, null);
         }
 
         private static string GetContentType(string path) => "text/" + path.Split('.')[2];

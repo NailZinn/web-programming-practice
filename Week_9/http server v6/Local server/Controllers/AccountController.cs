@@ -23,11 +23,13 @@ namespace Local_server.Controllers
         }
 
         [HttpPost("/accounts$")]
-        public bool Login(string login, string password)
+        public (bool, int?) Login(string login, string password)
         {
             var repository = new AccountRepository();
             var account = repository.SelectByLoginAndPassword(login, password);
-            return account is not null;
+            return account is not null
+                ? (true, account.Id)
+                : (false, null);
         }
     }
 }

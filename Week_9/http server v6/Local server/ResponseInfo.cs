@@ -7,5 +7,9 @@ using System.Threading.Tasks;
 
 namespace Local_server
 {
-    internal record ResponseInfo(byte[] Buffer, string ContentType, HttpStatusCode StatusCode);
+    internal record ResponseInfo(
+        byte[] Buffer, 
+        string ContentType, 
+        HttpStatusCode StatusCode,
+        Cookie? Cookie);
 }

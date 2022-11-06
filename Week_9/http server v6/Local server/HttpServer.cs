@@ -77,9 +77,8 @@ namespace Local_server
                 response.Headers.Set(HttpResponseHeader.ContentType, responseInfo.ContentType);
                 response.StatusCode = (int)responseInfo.StatusCode;
 
-                if (response.StatusCode == (int)HttpStatusCode.Redirect)
-                    response.Headers.Set(HttpResponseHeader.Location,
-                        "https://store.steampowered.com/login/?redir=&redir_ssl=1&snr=1_4_4__global-header");
+                if (responseInfo.Cookie is not null)
+                    response.SetCookie(responseInfo.Cookie);
 
                 var buffer = responseInfo.Buffer;
 
