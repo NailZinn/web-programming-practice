@@ -2,7 +2,6 @@
 using Local_server.Models;
 using Local_server.ORMs;
 using System.Net;
-using System.Text.RegularExpressions;
 
 namespace Local_server.Controllers
 {
@@ -12,7 +11,7 @@ namespace Local_server.Controllers
         [HttpGet("/accounts$")]
         public List<Account>? GetAccounts(string cookieValue)
         {
-            if (Regex.IsMatch(cookieValue, @"IsAuthorized=True|False"))
+            if (cookieValue == @"IsAuthorized=True")
             {
                 var repository = new AccountRepository();
                 return repository.Select();
