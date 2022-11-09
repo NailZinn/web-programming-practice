@@ -11,7 +11,9 @@ namespace Local_server.Controllers
         [HttpGet("/accounts$")]
         public List<Account>? GetAccounts(string cookieValue)
         {
-            if (cookieValue == @"IsAuthorized=True")
+            var authInfo = cookieValue.Split(' ')[0];
+
+            if (authInfo == @"IsAuthorized=True")
             {
                 var repository = new AccountRepository();
                 return repository.Select();
@@ -20,11 +22,23 @@ namespace Local_server.Controllers
         }
 
         [HttpGet("/accounts/[1-9][0-9]*$")]
-        public Account? GetAccountById(int id)
+        public Account? GetAccountInfo(int idFromQuery, string cookieValue)
         {
-            var repository = new AccountRepository();
+            if (cookieValue == string.Empty)
+                return null;
 
-            return repository.SelectById(id);
+            var info = cookieValue.Split(' ');
+
+            var authInfo = info[0];
+            var idFromCookie = int.Parse(info[1].Split('=')[1]);
+
+            if (authInfo == @"IsAuthorized=True" && idFromQuery == idFromCookie)
+            {
+                var repository = new AccountRepository();
+                return repository.SelectById(idFromQuery);
+            }
+
+            return null;
         }
 
         [HttpPost("/accounts$")]

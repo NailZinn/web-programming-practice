@@ -54,10 +54,10 @@ namespace Local_server
 
             if (method == null) return null;
 
-            if (method.Name == "GetAccounts")
+            if (method.Name == "GetAccounts" || method.Name == "GetAccountInfo")
             {
                 var cookie = request.Cookies["SessionId"];
-                var cookieAuthInfo = cookie is not null ? cookie.Value.Split(' ')[0] : "";
+                var cookieAuthInfo = cookie is not null ? cookie.Value : "";
                 strParams = strParams.Concat(new[] { cookieAuthInfo }).ToList();
             }
 
@@ -71,7 +71,7 @@ namespace Local_server
 
             if (ret == null)
             {
-                if (method.Name == "GetAccounts")
+                if (method.Name == "GetAccounts" || method.Name == "GetAccountInfo")
                 {
                     buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize("401 - unauthorized"));
                     return new ResponseInfo(buffer, "Application/json", HttpStatusCode.Unauthorized, null);
