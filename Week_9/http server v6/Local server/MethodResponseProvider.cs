@@ -54,21 +54,37 @@ namespace Local_server
 
             if (method == null) return null;
 
+            if (method.Name == "GetAccounts")
+            {
+                var cookie = request.Cookies["SessionId"];
+                var cookieValue = cookie is not null ? cookie.Value : "";
+                strParams = strParams.Concat(new[] { cookieValue }).ToList();
+            }
+
             object[] queryParams = method
                 .GetParameters()
                 .Select((p, i) => Convert.ChangeType(strParams[i], p.ParameterType))
                 .ToArray();
 
             var ret = method.Invoke(Activator.CreateInstance(controller), queryParams);
+            byte[] buffer;
 
             if (ret == null)
             {
-                byte[] buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize("404 - not found"));
-                return new ResponseInfo(buffer, "Application/json", HttpStatusCode.OK, null);
+                if (method.Name == "GetAccounts")
+                {
+                    buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize("401 - unauthorized"));
+                    return new ResponseInfo(buffer, "Application/json", HttpStatusCode.Unauthorized, null);
+                }
+                else
+                {
+                    buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize("404 - not found"));
+                    return new ResponseInfo(buffer, "Application/json", HttpStatusCode.OK, null);
+                }
             }
             else
             {
-                byte[] buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize(ret));
+                buffer = Encoding.ASCII.GetBytes(JsonSerializer.Serialize(ret));
 
                 if (method.Name == "Login")
                 {

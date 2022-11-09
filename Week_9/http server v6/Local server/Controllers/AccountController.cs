@@ -2,6 +2,7 @@
 using Local_server.Models;
 using Local_server.ORMs;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Local_server.Controllers
 {
@@ -9,16 +10,21 @@ namespace Local_server.Controllers
     public class AccountController
     {
         [HttpGet("/accounts$")]
-        public List<Account> GetAccounts()
+        public List<Account>? GetAccounts(string cookieValue)
         {
-            var repository = new AccountRepository();
-            return repository.Select();
+            if (Regex.IsMatch(cookieValue, @"IsAuthorized=True|False"))
+            {
+                var repository = new AccountRepository();
+                return repository.Select();
+            }
+            return null;
         }
 
         [HttpGet("/accounts/[1-9][0-9]*$")]
         public Account? GetAccountById(int id)
         {
             var repository = new AccountRepository();
+
             return repository.SelectById(id);
         }
 
