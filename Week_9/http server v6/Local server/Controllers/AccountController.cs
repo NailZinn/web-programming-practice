@@ -13,7 +13,7 @@ namespace Local_server.Controllers
         {
             var authInfo = cookieValue.Split(' ')[0];
 
-            if (authInfo == @"IsAuthorized=True")
+            if (authInfo == "IsAuthorized=True")
             {
                 var repository = new AccountRepository();
                 return repository.Select();
