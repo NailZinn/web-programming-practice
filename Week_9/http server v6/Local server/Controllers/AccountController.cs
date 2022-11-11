@@ -1,7 +1,9 @@
 ﻿using Local_server.Attributes;
 using Local_server.Models;
 using Local_server.ORMs;
+using Local_server.Sessions;
 using System.Net;
+using System.Text;
 
 namespace Local_server.Controllers
 {
@@ -46,9 +48,13 @@ namespace Local_server.Controllers
         {
             var repository = new AccountRepository();
             var account = repository.SelectByLoginAndPassword(login, password);
-            return account is not null
-                ? (true, account.Id)
-                : (false, null);
+            if (account is not null)
+            {
+                SessionManager.CreateSession(login, () => new Session(guid, account.Id, login, DateTime.Now));
+                return (true, account.Id);
+            }
+            else
+                return (false, null);
         }
     }
 }

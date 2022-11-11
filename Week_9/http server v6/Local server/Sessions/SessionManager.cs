@@ -2,23 +2,23 @@
 
 namespace Local_server.Sessions
 {
-    internal class SessionManager
+    internal static class SessionManager
     {
-        private readonly MemoryCache _cache = new MemoryCache(new MemoryCacheOptions());
+        private static readonly MemoryCache _cache = new MemoryCache(new MemoryCacheOptions());
 
-        public void CreateSession(object key, Func<Session> createSssion)
+        public static void CreateSession(object key, Func<Session> createSession)
         {
-            var session = createSssion();
+            var session = createSession();
             _cache.Set(key, session, 
                 new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(2)));
         }
 
-        public bool CheckSession(object key)
+        public static bool CheckSession(object key)
         {
             return _cache.TryGetValue(key, out _);
         }
 
-        public Session? GetInfo(object key)
+        public static Session? GetInfo(object key)
         {
             return _cache.TryGetValue<Session>(key, out var res)
                 ? res
