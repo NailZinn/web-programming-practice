@@ -1,14 +1,17 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using Local_server.ORMs;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Local_server.Sessions
 {
     internal static class SessionManager
     {
         private static readonly MemoryCache _cache = new MemoryCache(new MemoryCacheOptions());
+        private static readonly MyOrm _orm = new MyOrm(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SteamDB;Integrated Security=True");
 
         public static void CreateSession(object key, Func<Session> createSession)
         {
             var session = createSession();
+            _orm.Insert(session);
             _cache.Set(key, session, 
                 new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(2)));
         }

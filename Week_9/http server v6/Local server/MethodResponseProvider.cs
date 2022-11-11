@@ -88,13 +88,13 @@ namespace Local_server
 
                 if (method.Name == "Login")
                 {
-                    var result = ((bool, int?))ret;
+                    var result = ((bool, Guid?))ret;
                     var buff = Encoding.ASCII.GetBytes(JsonSerializer.Serialize(result.Item1));
 
                     if (result.Item1)
                     {
                         return new ResponseInfo(buff, "Application/json", HttpStatusCode.OK, 
-                            new Cookie("SessionId", $"IsAuthorized={result.Item1} Id={result.Item2}"));
+                            new Cookie("SessionId", $"{result.Item2}"));
                     }
 
                     return new ResponseInfo(buff, "Application/json", HttpStatusCode.OK, null);

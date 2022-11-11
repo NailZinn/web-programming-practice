@@ -13,8 +13,9 @@ namespace Local_server.Sessions
         public string Login { get; }
         public DateTime CreateDateTime { get; }
 
-        public Session(int accountId, string login, DateTime createDateTime)
+        public Session(Guid id, int accountId, string login, DateTime createDateTime)
         {
+            Id = id;
             AccountId = accountId;
             Login = login;
             CreateDateTime = createDateTime;

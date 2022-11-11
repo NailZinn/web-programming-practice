@@ -66,6 +66,18 @@ namespace Local_server.ORMs
             return default;
         }
 
+        public void Insert<T>(T entity)
+            where T : notnull
+        {
+            var properties = entity
+                .GetType()
+                .GetProperties()
+                .Select(property => property.GetValue(entity).ToString())
+                .ToArray();
+
+            Insert<T>(properties);
+        }
+
         public void Insert<T>(params string[] args)
         {
             var type = typeof(T);
