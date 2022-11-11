@@ -50,7 +50,7 @@ namespace Local_server.Controllers
             var account = repository.SelectByLoginAndPassword(login, password);
             if (account is not null)
             {
-                SessionManager.CreateSession(login, () => new Session(guid, account.Id, login, DateTime.Now));
+                SessionManager.CreateSession(login, () => new Session(account.Id, login, DateTime.Now));
                 return (true, account.Id);
             }
             else
